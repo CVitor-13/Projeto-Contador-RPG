@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#15232b">
+  <title>Contador RPG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">+</div>
+      <div>
+        <p class="eyebrow">FICHA DE AVENTURA</p>
+        <h1>Contador RPG</h1>
+      </div>
+      <button class="reset-button" id="resetButton" type="button" title="Restaurar os valores iniciais">
+        <span aria-hidden="true">↺</span> Restaurar
+      </button>
+    </header>
+
+    <section class="intro" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow accent">RECURSOS DO PERSONAGEM</p>
+        <h2 id="pageTitle">Mantenha sua aventura em movimento.</h2>
+      </div>
+      <p class="intro-copy">Ajuste os recursos rapidamente durante o combate, descanso ou exploração.</p>
+    </section>
+
+    <section class="resource-grid" aria-label="Contadores de recursos">
+      <article class="resource-card health-card" data-resource="pv">
+        <div class="card-heading">
+          <div class="resource-icon" aria-hidden="true">♥</div>
+          <div>
+            <p class="resource-kicker">RESISTÊNCIA</p>
+            <h3>Pontos de Vida <span>PV</span></h3>
+          </div>
+          <strong class="percentage" data-percentage="pv">100%</strong>
+        </div>
+        <div class="value-row">
+          <label class="sr-only" for="pvValue">Pontos de vida atuais</label>
+          <input class="current-value" id="pvValue" data-value="pv" type="number" min="0" value="80" inputmode="numeric" aria-describedby="pvMaxLabel">
+          <span class="value-divider">/</span>
+          <label class="sr-only" for="pvMax">Pontos de vida máximos</label>
+          <input class="max-value" id="pvMax" data-max="pv" type="number" min="1" value="80" inputmode="numeric" aria-describedby="pvMaxLabel">
+          <span class="max-label" id="pvMaxLabel">máximo</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-bar="pv"></div>
+        </div>
+        <label class="sr-only" for="pvRange">Ajustar pontos de vida</label>
+        <input class="range-input" id="pvRange" data-range="pv" type="range" min="0" max="80" value="80">
+        <div class="control-row">
+          <button class="step-button decrease" data-action="decrease" data-target="pv" type="button" aria-label="Diminuir pontos de vida">−</button>
+          <span class="step-hint">1 ponto por vez</span>
+          <button class="step-button increase" data-action="increase" data-target="pv" type="button" aria-label="Aumentar pontos de vida">+</button>
+        </div>
+      </article>
+
+      <article class="resource-card determination-card" data-resource="pd">
+        <div class="card-heading">
+          <div class="resource-icon" aria-hidden="true">✦</div>
+          <div>
+            <p class="resource-kicker">FOCO E VONTADE</p>
+            <h3>Pontos de Determinação <span>PD</span></h3>
+          </div>
+          <strong class="percentage" data-percentage="pd">100%</strong>
+        </div>
+        <div class="value-row">
+          <label class="sr-only" for="pdValue">Pontos de determinação atuais</label>
+          <input class="current-value" id="pdValue" data-value="pd" type="number" min="0" value="12" inputmode="numeric" aria-describedby="pdMaxLabel">
+          <span class="value-divider">/</span>
+          <label class="sr-only" for="pdMax">Pontos de determinação máximos</label>
+          <input class="max-value" id="pdMax" data-max="pd" type="number" min="1" value="12" inputmode="numeric" aria-describedby="pdMaxLabel">
+          <span class="max-label" id="pdMaxLabel">máximo</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" data-bar="pd"></div>
+        </div>
+        <label class="sr-only" for="pdRange">Ajustar pontos de determinação</label>
+        <input class="range-input" id="pdRange" data-range="pd" type="range" min="0" max="12" value="12">
+        <div class="control-row">
+          <button class="step-button decrease" data-action="decrease" data-target="pd" type="button" aria-label="Diminuir pontos de determinação">−</button>
+          <span class="step-hint">1 ponto por vez</span>
+          <button class="step-button increase" data-action="increase" data-target="pd" type="button" aria-label="Aumentar pontos de determinação">+</button>
+        </div>
+      </article>
+    </section>
+
+    <footer class="status-line"><span class="status-dot"></span><span id="statusText">Progresso salvo neste dispositivo</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
